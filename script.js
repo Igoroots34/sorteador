@@ -39,23 +39,32 @@ function startDrawing() {
 
 document.addEventListener('DOMContentLoaded', function() {
     var nameInput = document.getElementById('nameInput');
+    var textInput = document.getElementById('text-input');
     var initialImage = document.createElement('img');
     var focusedImage = 'images/cs2-logo-orange.png';
+    
     initialImage.src = 'images/cs2-logo.png';
     initialImage.id = 'inputImage';
-    initialImage.style.width = '300px';
+    initialImage.style.width = '20em';
     initialImage.style.marginLeft = '10px';
     
-    nameInput.parentNode.insertBefore(initialImage, nameInput.nextSibling);
+    // Insert the image before the input
+    nameInput.parentNode.insertBefore(initialImage, nameInput);
+    
+    // Move the textInput paragraph after the image
+    nameInput.parentNode.insertBefore(textInput, nameInput);
 
     nameInput.addEventListener('focus', function() {
         initialImage.src = focusedImage;
+        initialImage.classList.add('neon');
     });
     
     nameInput.addEventListener('blur', function() {
         initialImage.src = 'images/cs2-logo.png';
+        initialImage.classList.remove('neon');
     });
 });
+
 
 var TagsInput = function(element) { 
 var self = this;
