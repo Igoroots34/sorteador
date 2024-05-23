@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title title>Sorteio de Nomes</title>
+    <title>Sorteio de Nomes</title>
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,24 +13,24 @@
 <body class="text-center">
     <section class="container">
         <div class="box p-4">
-        <h1 style="font-size: 40px; color: #CB6AEB" class="mb-3"><span><img style="width: 60px; transform: rotateY(180deg);" src="https://static.thenounproject.com/png/310005-200.png"></span>SORTEIO DO MIX<span><img style="width: 60px;" src="https://static.thenounproject.com/png/310005-200.png"></span></h1>
-        <form class="form-floating mb-3 input-area">
-            <input type="text" class="form-control" id="nameInput" placeholder="name@example.com" style="height: 100px">
-            <label class="form-label" for="floatingInputValue">Adicione os nomes (separados por vírgula):</label>
-        </form>
-        <div class="scoreboard">
-            <h2 style="font-size: 36px; color: #C0EB6A">EQUIPES</h2>
-            <p style="font-size: 26px; color: #C0EB6A">EQUIPE 1</p>
-            <p id="team1Score"><span><img style="width: 30px;" src="https://seeklogo.com/images/C/csgo-headshot-logo-D55BFE7334-seeklogo.com.png"></span></p>
-            <p style="font-size: 26px; color: #C0EB6A">EQUIPE 2</p>
-            <p id="team2Score"><span><img style="width: 30px;" src="https://seeklogo.com/images/C/csgo-headshot-logo-D55BFE7334-seeklogo.com.png"></span></p>
+            <main>
+                <p>Adicione os nomes (separados por vírgula):</p>
+                <div id="nameInput" class="tags-input"></div>
+            </main>
+            <div class="scoreboard">
+                <h2 style="font-size: 36px; color: #e48717">EQUIPES</h2>
+                <p style="font-size: 26px; color: #e48717">EQUIPE 1</p>
+                <p id="team1Score"><span><img style="width: 30px;" src="https://seeklogo.com/images/C/csgo-headshot-logo-D55BFE7334-seeklogo.com.png" alt="Equipe 1"></span></p>
+                <p style="font-size: 26px; color: #e48717">EQUIPE 2</p>
+                <p id="team2Score"><span><img style="width: 30px;" src="https://seeklogo.com/images/C/csgo-headshot-logo-D55BFE7334-seeklogo.com.png" alt="Equipe 2"></span></p>
+            </div>
+            <div class="names">
+                <h2 style="font-size: 36px; color: #e48717">NOMES SORTEADOS</h2>
+                <p style="font-size: 42px; color: #CB6AEB" id="nameDisplay"></p>
+            </div>
+            <button type="button" class="button-sort" onclick="startDrawing()">INICIAR SORTEIO</button>
         </div>
-        <div class="names">
-            <h2 style="font-size: 36px; color: #C0EB6A" class="">NOMES SORTEADOS</h2>
-            <p style="font-size: 42px; color: #CB6AEB" id="nameDisplay"></p>
-        </div>
-        <button type="button" class="button-sort" onclick="startDrawing()">INICIAR SORTEIO</button>
-        </div>
+        <img class="cs2image" src="images/header_ctt.png" alt="2 personagens de CS2">
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>

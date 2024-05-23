@@ -1,59 +1,123 @@
-:root {
-    --color-1: rgb(66,86,79);
-    --color-2: rgb(192,235,106);
-    --color-3: rgb(247,246,231);
-    --color-4: rgb(223,221,197);
-    }
-    
 body {
-background: url(https://i.imgur.com/KLa8NFT.png) no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+    background: url(/images/Counter-Strike_2_Website_Background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+section {
+    display: flex;
 }
 
 .box {
-margin: 40px;
-width: 750px;
-height: 842px;
-border-radius: 62px;
-background: rgba(255, 255, 255, 0.30);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(8.4px);
--webkit-backdrop-filter: blur(8.4px);
-border: 1px solid rgba(255, 255, 255, 0.58);
+    margin: 30px;
+    width: 750px;
+    height: 800px;
+    border-radius: 62px;
+    background: rgba(0, 0, 0, 0.651);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(54, 54, 54, 0.5);
+    backdrop-filter: blur(8.4px);
+    -webkit-backdrop-filter: blur(8.4px);
+    border: 1px solid rgba(0, 0, 0, 0.925);
 }
 
 #team1Score, #team2Score {
-background: rgba(247,246,231, 0.7);
-text-transform: uppercase;
-color: black;
-font-weight: 700;
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-align-content: center;
-margin: 10px 50px;
-padding: 20px 20px;
-backdrop-filter: blur(8.4px);
--webkit-backdrop-filter: blur(8.4px);
-border: 1px solid rgba(255, 255, 255, 0.58);
+    background: rgba(210, 210, 210, 0.7);
+    text-transform: uppercase;
+    color: black;
+    font-weight: 700;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    align-content: center;
+    margin: 10px 50px;
+    padding: 20px 20px;
+    backdrop-filter: blur(8.4px);
+    -webkit-backdrop-filter: blur(8.4px);
+    border: 1px solid rgba(210, 210, 210, 0.58);
 }
 
 .button-sort {
-background-color: #C0EB6A;
-padding: 24px 54px;
-border-radius: 16px;
-font-weight: 700;
+    background-color: #e48717;
+    padding: 24px 54px;
+    border-radius: 16px;
+    font-weight: 700;
 }
 
 .button-sort:hover {
-background-color: #666B5B;
-color: white;
+    background-color: #666B5B;
+    color: white;
 }
 
 #nameDisplay {
-text-transform: uppercase;
-font-weight: 700;
+    text-transform: uppercase;
+    font-weight: 700;
 }
+
+.cs2image {
+    height: 400px;
+    position: absolute;
+    top: 461px;
+    left: 1000px;
+}
+
+main {
+max-width: 700px;
+padding: 0 30px;
+}
+
+p {
+margin-top: 10px;
+font-size: 10px;
+font-weight: bold;
+color: #e48717;
+text-align: center;
+text-transform: uppercase;
+letter-spacing: 1px; }
+
+.tags-input {
+    border: 2px solid #1e202f;
+    border-radius: 40px;
+    height: 40px;
+    padding: 0 11px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #e48717;
+}
+
+.tags-input:focus {
+    border-color: #e48717;
+    outline: none;
+}
+.tags-input::after {
+    content: '';
+    background: #e48717;
+    width: 1px;
+    height: 19px;
+    margin: -1px 0 0 -1px;
+    display: none;
+    animation: blink 0.5s infinite alternate; }
+.tags-input:focus {
+    border-color: #e48717;
+    outline: none; }
+    .tags-input:focus[data-cursor]::after {
+    display: block; }
+    @media screen and (max-width: 736px) {
+        .tags-input:focus[data-cursor]::after {
+        display: none; } }
+    .tags-input:focus + h1 {
+    color: #e48717; }
+    .tags-input:focus + h1 span {
+        border-color: #e48717; }
+
+@keyframes blink {
+0% {
+    opacity: 1; }
+49% {
+    opacity: 1; }
+50% {
+    opacity: 0; }
+100% {
+    opacity: 0; } }
