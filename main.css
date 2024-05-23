@@ -1,0 +1,59 @@
+:root {
+    --color-1: rgb(66,86,79);
+    --color-2: rgb(192,235,106);
+    --color-3: rgb(247,246,231);
+    --color-4: rgb(223,221,197);
+    }
+    
+body {
+background: url(https://i.imgur.com/KLa8NFT.png) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.box {
+margin: 40px;
+width: 750px;
+height: 842px;
+border-radius: 62px;
+background: rgba(255, 255, 255, 0.30);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.4px);
+-webkit-backdrop-filter: blur(8.4px);
+border: 1px solid rgba(255, 255, 255, 0.58);
+}
+
+#team1Score, #team2Score {
+background: rgba(247,246,231, 0.7);
+text-transform: uppercase;
+color: black;
+font-weight: 700;
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+align-content: center;
+margin: 10px 50px;
+padding: 20px 20px;
+backdrop-filter: blur(8.4px);
+-webkit-backdrop-filter: blur(8.4px);
+border: 1px solid rgba(255, 255, 255, 0.58);
+}
+
+.button-sort {
+background-color: #C0EB6A;
+padding: 24px 54px;
+border-radius: 16px;
+font-weight: 700;
+}
+
+.button-sort:hover {
+background-color: #666B5B;
+color: white;
+}
+
+#nameDisplay {
+text-transform: uppercase;
+font-weight: 700;
+}
