@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Membros</title>
+    <style>
+        .selected {
+            background-color: #d3d3d3; /* Cor de fundo para itens selecionados */
+        }
+    </style>
+</head>
+<body>
+    <h1>Seleção de Membros</h1>
+    <button id="atualizar-lista">Atualizar Lista</button>
+    <ul id="members-list"></ul>
+    <button onclick="sortearGrupos()">Sortear Grupos</button>
+
+    <script>
+        let membrosSelecionados = [];
+
+        async function buscarMembrosDoServidor() {
+            try {
+                const resposta = await fetch('http://localhost:5000/server_members');
+                if (!resposta.ok) {
+                    throw new Error('A resposta da rede não foi ok');
+                }
+                const membros = await resposta.json();
+                exibirMembros(membros);
+            } catch (erro) {
+                console.error('Erro ao buscar membros:', erro);
+                alert('Falha ao buscar membros do servidor.');
+            }
+        }
+
+        function exibirMembros(membros) {
+            const listaDeMembros = document.getElementById('members-list');
+            listaDeMembros.innerHTML = ''; // Limpa a lista
+            membros.forEach(membro => {
+                const itemLista = document.createElement('li');
+                itemLista.textContent = membro.name;
+                itemLista.dataset.id = membro.id;
+                itemLista.addEventListener('click', alternarSelecao);
+                listaDeMembros.appendChild(itemLista);
+            });
+        }
+
+        function alternarSelecao(evento) {
+            const itemLista = evento.target;
+            const membroId = itemLista.dataset.id;
+            const indice = membrosSelecionados.indexOf(membroId);
+            if (indice === -1) {
+                membrosSelecionados.push(membroId);
+                itemLista.classList.add('selected');
+            } else {
+                membrosSelecionados.splice(indice, 1);
+                itemLista.classList.remove('selected');
+            }
+        }
+
+        function sortearGrupos() {
+            if (membrosSelecionados.length < 10) {
+                alert('Selecione 10 membros primeiro');
+                return;
+            }
+            const membrosEmbaralhados = [...membrosSelecionados].sort(() => Math.random() - 0.5);
+            const grupo1 = membrosEmbaralhados.slice(0, 5);
+            const grupo2 = membrosEmbaralhados.slice(5, 10);
+            alert(`Grupo 1: ${grupo1.join(', ')}\nGrupo 2: ${grupo2.join(', ')}`);
+        }
+
+        document.getElementById('atualizar-lista').addEventListener('click', buscarMembrosDoServidor);
+
+        window.onload = buscarMembrosDoServidor;
+    </script>
+</body>
+</html>
