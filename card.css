@@ -1,0 +1,63 @@
+.card {
+background-color: grey;
+max-width: 130px;
+max-height: 180px;
+}
+
+.card-title {
+font-size: 12px;
+font-weight: 700;
+}
+
+.btn-select {
+background-color: #e48717;
+padding: 0 25px;
+border-radius: 9px;
+}
+
+.btn-select:hover {
+background-color: #1e202f;
+color: white;
+}
+
+.btn-select.selected {
+border-color: #456e45; /* Cor para indicar seleção */
+background-color: #456e45; /* Fundo claro para indicar seleção */
+}
+
+
+#nameDisplay {
+color: #1e202f;
+text-transform: uppercase;
+}
+
+.wrapper {
+/*This part is important for centering*/
+display: grid;
+place-items: center;
+}
+
+.typing-demo {
+animation: typing 1s steps(20), blink .5s step-start infinite alternate;
+white-space: nowrap;
+overflow: hidden;
+padding: 8px;
+border-right: 5px solid;
+font-size: 2em;
+display: inline-block;
+}
+
+@keyframes typing {
+from {
+        width: 0
+}
+to {
+        width:100%;
+}
+}
+        
+@keyframes blink {
+50% {
+        border-color: transparent
+}
+}

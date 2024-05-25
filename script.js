@@ -1,3 +1,12 @@
+window.
+onload
+= function() {
+    Particles.init
+({
+    selector: '.background'
+    });
+};
+
 let team1 = [];
 let team2 = [];
 
@@ -6,36 +15,48 @@ function startDrawing() {
     const team1ScoreDisplay = document.getElementById("team1Score");
     const team2ScoreDisplay = document.getElementById("team2Score");
 
-  // Zerar os times e a exibição de nomes ao iniciar o sorteio
+    // Zerar os times e a exibição de nomes ao iniciar o sorteio
     team1 = [];
     team2 = [];
     team1ScoreDisplay.textContent = ``;
     team2ScoreDisplay.textContent = ``;
-    nameDisplay.textContent = "";
+    nameDisplay.textContent = "NOMES SORTEADO";
 
     const namesInput = document.getElementById("nameInput").value;
     const names = namesInput.split(",").map(name => name.trim());
 
     const interval = setInterval(() => {
-    if (names.length === 0) {
-        clearInterval(interval);
-        return;
-    }
+        if (names.length === 0) {
+            clearInterval(interval);
+            return;
+        }
 
-    const randomIndex = Math.floor(Math.random() * names.length);
-    const name = names.splice(randomIndex, 1)[0];
+        const randomIndex = Math.floor(Math.random() * names.length);
+        const name = names.splice(randomIndex, 1)[0];
 
-    if (team1.length < 5) {
-        team1.push(name);
-        team1ScoreDisplay.textContent = ` ${team1.join(", ")}`;
-    } else if (team2.length < 5) {
-        team2.push(name);
-        team2ScoreDisplay.textContent = ` ${team2.join(", ")}`;
-    }
+        if (team1.length < 5) {
+            team1.push(name);
+            team1ScoreDisplay.textContent = ` ${team1.join(", ")}`;
+        } else if (team2.length < 5) {
+            team2.push(name);
+            team2ScoreDisplay.textContent = ` ${team2.join(", ")}`;
+        }
 
-    nameDisplay.textContent = name;
-    }, 3000);
+        // Reiniciar a animação
+        nameDisplay.classList.remove("typing-demo");
+        void nameDisplay.offsetWidth; // Forçar reflow para reiniciar a animação
+        nameDisplay.classList.add("typing-demo");
+
+        // Definir a largura do nameDisplay com base no comprimento do texto e adicionar 1 pixel
+        const computedWidth = `${nameDisplay.length + 1}`;
+        nameDisplay.style.width = computedWidth;
+
+        nameDisplay.textContent = name;
+    }, 2000);
 }
+
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     var nameInput = document.getElementById('nameInput');
@@ -219,3 +240,35 @@ this.element = element;
 };
 
 var input = new TagsInput('.tags-input');
+
+//card selected//
+
+// Adicione isso no seu arquivo JavaScript (script.js)
+document.addEventListener('DOMContentLoaded', (event) => {
+    const buttons = document.querySelectorAll('.btn-select');
+    const nameInput = document.getElementById('nameInput');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const card = button.closest('.card');
+            const cardTitle = card.querySelector('.card-title').textContent;
+            const btnSelect = card.querySelector('.btn-select')
+
+            // Marcar/desmarcar a seleção visualmente
+            btnSelect.classList.toggle('selected');
+
+            // Adicionar ou remover o nome no input
+            let names = nameInput.value.split(',').map(name => name.trim()).filter(name => name !== '');
+            if (btnSelect.classList.contains('selected')) {
+                // Adicionar nome se não estiver na lista
+                if (!names.includes(cardTitle)) {
+                    names.push(cardTitle);
+                }
+            } else {
+                // Remover nome se estiver na lista
+                names = names.filter(name => name !== cardTitle);
+            }
+            nameInput.value = names.join(', ');
+        });
+    });
+});

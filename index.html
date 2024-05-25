@@ -5,41 +5,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteio de Nomes</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="card.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Danfo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">      
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body class="container text-center">
-    <section>
-        <div class="box p-4">
-            <main class="">
-                <p id="text-input">Adicione os nomes (separados por vírgula):</p>
-                <input type="text" id="nameInput" class="tags-input">
-            </main>
-            <div class="scoreboard">
-                <p style="font-size: 1.5em; color: #e48717">EQUIPE 1</p>
-                <p id="team1Score"><span><img style="width: 30px;" src="https://seeklogo.com/images/C/csgo-headshot-logo-D55BFE7334-seeklogo.com.png" alt="Equipe 1"></span></p>
-                <p style="font-size: 1.5em; color: #e48717">EQUIPE 2</p>
-                <p id="team2Score"><span><img style="width: 30px;" src="https://seeklogo.com/images/C/csgo-headshot-logo-D55BFE7334-seeklogo.com.png" alt="Equipe 2"></span></p>
-            </div>
-            <div class="names">
-                <h2 style="font-size: 2em; color: #e48717">NOMES SORTEADOS</h2>
-                <p style="font-size: 2.5em; color: #CB6AEB" id="nameDisplay"></p>
-            </div>
-            <button type="button" class="button-sort" onclick="startDrawing()">INICIAR SORTEIO</button>
-        </div>
-        <div class="card-game rounded-4">
-            <div class="card">
-                <div class="wrapper">
-                <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg" class="cover-image rounded-4" />
+<body class="play-bold">
+    <img class="bullet" src="/images/pinpng.com-bullet-holes-png-481355.png" alt="">
+    
+    <canvas class=
+    "background"
+    ></canvas>
+    <section class="container-fluid text-center mt-4 ms-4">
+        <div class="row ">
+            <div class="box col-6 slide-in-elliptic-left-bck">
+                <main>
+                    <p id="text-input">Adicione os nomes (separados por vírgula):</p>
+                    <input type="text" id="nameInput" class="tags-input">
+                </main>
+    
+            <div class="container mt-4">
+                <div class="row">
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">IGS</h5>
+                        <button type="button" data-bs-toggle="button" class="btn-select"><i><img class="" src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
                 </div>
-                <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png" class="title rounded-4" />
-                <img src="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp" class="character rounded-4" />
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Jink</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">p0canNNN</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Nick</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">GORDINHO</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">SOUZA</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                <div class="container mt-3 text-center">
+                <div class="row">
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">NTH_FPS</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Coxinha</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Prince</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title text-truncate">JOTAHAGAA_</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">GêGê</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title text-truncate">leo pai do KaikyFps</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                <div class="container mt-3 text-center">
+                <div class="row">
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Drypol</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">CoReiAnO</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Márlon</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Surpresa 1</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Surpresa 2</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card" style="border: 2px solid #e48717;">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    <div class="card-body align-content-start">
+                        <h5 class="card-title">Surpresa 3</h5>
+                        <button type="button" class="btn-select"><i><img src="images/AK47.png" style="width: 40px;"></i></button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+    
+                <!-- Additional containers for more cards -->
+                <!-- Repeated structure as above -->
+    
+                <button type="button" class="button-sort m-4" onclick="startDrawing()">INICIAR SORTEIO</button>
+            </div>
+            <div class="scoreboard col-5">
+                <div class="wrapper">
+                    <p class="typing-demo" style="font-size: 4em;" id="nameDisplay">NOME SORTEADO</p>
+                </div>
+                <p style="font-size: 1.5em; color: #1e202f"><span><img style="width: 30px;" src="https://static.wikia.nocookie.net/cswikia/images/d/d5/Icon_headshot.png/" alt="Equipe 1"></span> EQUIPE 1</p>
+                <p id="team1Score">...</p>
+                <p style="font-size: 1.5em; color: #1e202f"><span><img style="width: 30px;" src="https://static.wikia.nocookie.net/cswikia/images/d/d5/Icon_headshot.png/" alt="Equipe 1"></span> EQUIPE 2</p>
+                <p id="team2Score">...</p>
+                <img class="cs2image" src="/images/header_ctt.png" alt="">
             </div>
         </div>
-        <img class="cs2image" src="images/header_ctt.png" alt="2 personagens de CS2">
+        
     </section>
+    
+    
+    <script src=
+    "node_modules/particlesjs/dist/particles.min.js"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
